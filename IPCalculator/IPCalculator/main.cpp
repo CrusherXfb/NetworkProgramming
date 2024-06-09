@@ -1,8 +1,8 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include <Windows.h> //<> - поиск по системным каталогам VStudio
+п»ї#define _CRT_SECURE_NO_WARNINGS
+#include <Windows.h> //<> - РїРѕРёСЃРє РїРѕ СЃРёСЃС‚РµРјРЅС‹Рј РєР°С‚Р°Р»РѕРіР°Рј VStudio
 #include <CommCtrl.h>
 #include <cstdio>
-#include "resource.h" //"" - поиск по каталогу проекта, а после по системным каталогам VStudio 
+#include "resource.h" //"" - РїРѕРёСЃРє РїРѕ РєР°С‚Р°Р»РѕРіСѓ РїСЂРѕРµРєС‚Р°, Р° РїРѕСЃР»Рµ РїРѕ СЃРёСЃС‚РµРјРЅС‹Рј РєР°С‚Р°Р»РѕРіР°Рј VStudio 
 #include <cmath>
 
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -39,17 +39,17 @@ INT CountOnes(DWORD mask)
 	return 32 - zero_bits;
 }
 
-//Процедура окна - это самая обычная функция, которая вызывается при запуске окна
+//РџСЂРѕС†РµРґСѓСЂР° РѕРєРЅР° - СЌС‚Рѕ СЃР°РјР°СЏ РѕР±С‹С‡РЅР°СЏ С„СѓРЅРєС†РёСЏ, РєРѕС‚РѕСЂР°СЏ РІС‹Р·С‹РІР°РµС‚СЃСЏ РїСЂРё Р·Р°РїСѓСЃРєРµ РѕРєРЅР°
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	//Все принимаемые параметры - это числовые значения длиной 4 Байта
-	//HWND (Handler to Window) - обработчик окна - это число, которое идентифицирует окно
-	//Любые обращения к окну можно выполнить только через его обработчик
-	//uMsg - Message - Сообщение, которое отправляется окну
-	//wParam, lParam - параметры сообщения. Они делятся на LOWORD и HIWORD
-	//LOWORD - младшее слово
-	//HIWORD - старшее слово
-	//WORD (слово) - это два Байта
+	//Р’СЃРµ РїСЂРёРЅРёРјР°РµРјС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ - СЌС‚Рѕ С‡РёСЃР»РѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РґР»РёРЅРѕР№ 4 Р‘Р°Р№С‚Р°
+	//HWND (Handler to Window) - РѕР±СЂР°Р±РѕС‚С‡РёРє РѕРєРЅР° - СЌС‚Рѕ С‡РёСЃР»Рѕ, РєРѕС‚РѕСЂРѕРµ РёРґРµРЅС‚РёС„РёС†РёСЂСѓРµС‚ РѕРєРЅРѕ
+	//Р›СЋР±С‹Рµ РѕР±СЂР°С‰РµРЅРёСЏ Рє РѕРєРЅСѓ РјРѕР¶РЅРѕ РІС‹РїРѕР»РЅРёС‚СЊ С‚РѕР»СЊРєРѕ С‡РµСЂРµР· РµРіРѕ РѕР±СЂР°Р±РѕС‚С‡РёРє
+	//uMsg - Message - РЎРѕРѕР±С‰РµРЅРёРµ, РєРѕС‚РѕСЂРѕРµ РѕС‚РїСЂР°РІР»СЏРµС‚СЃСЏ РѕРєРЅСѓ
+	//wParam, lParam - РїР°СЂР°РјРµС‚СЂС‹ СЃРѕРѕР±С‰РµРЅРёСЏ. РћРЅРё РґРµР»СЏС‚СЃСЏ РЅР° LOWORD Рё HIWORD
+	//LOWORD - РјР»Р°РґС€РµРµ СЃР»РѕРІРѕ
+	//HIWORD - СЃС‚Р°СЂС€РµРµ СЃР»РѕРІРѕ
+	//WORD (СЃР»РѕРІРѕ) - СЌС‚Рѕ РґРІР° Р‘Р°Р№С‚Р°
 	
 	switch (uMsg)
 	{
@@ -57,7 +57,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		//WM - Window Message
 		HWND hUpDown = GetDlgItem(hwnd, IDC_SPIN_PREFIX);
-		//Функция GetDlgItem() получает HWND элемента интерфейса по его ID
+		//Р¤СѓРЅРєС†РёСЏ GetDlgItem() РїРѕР»СѓС‡Р°РµС‚ HWND СЌР»РµРјРµРЅС‚Р° РёРЅС‚РµСЂС„РµР№СЃР° РїРѕ РµРіРѕ ID
 		SendMessage(hUpDown, UDM_SETRANGE32, 0, 32);
 
 		HWND hIpAddress = GetDlgItem(hwnd, IDC_IPADDRESS);
@@ -74,7 +74,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			HWND hIPaddress = GetDlgItem(hwnd, IDC_IPADDRESS);
 			HWND hStaticInfo = GetDlgItem(hwnd, IDC_STATIC_INFO);
 			HWND hEditPrefix = GetDlgItem(hwnd, IDC_EDIT_PREFIX);
-			//EN - Edit Notification (уведомление)
+			//EN - Edit Notification (СѓРІРµРґРѕРјР»РµРЅРёРµ)
 			if (HIWORD(wParam) == EN_CHANGE)
 			{
 				//BYTE = 8 bit - CHAR
@@ -110,7 +110,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		//		DWORD dw_mask = 0;
 		//		SendMessage(hIPmask, IPM_GETADDRESS, 0, (LPARAM)&dw_mask);
 		//		INT prefix = CountOnes(dw_mask);
-		//		CHAR sz_prefix[3] = {}; //sz_ - string zero (строка заканчивающаяся нулём)
+		//		CHAR sz_prefix[3] = {}; //sz_ - string zero (СЃС‚СЂРѕРєР° Р·Р°РєР°РЅС‡РёРІР°СЋС‰Р°СЏСЃСЏ РЅСѓР»С‘Рј)
 		//		sprintf(sz_prefix, "%i", prefix);
 		//		SendMessage(hEditPrefix, WM_SETTEXT, 0, (LPARAM)sz_prefix);
 		//		//SendMessage(hIPmask, IPM_SETADDRESS, 0, dw_mask >> (32 - prefix) << (32 - prefix));
@@ -129,7 +129,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				SendMessage(hEditPrefix, WM_GETTEXT, SIZE, (LPARAM)sz_buffer);
 				//MessageBox(hwnd, sz_buffer, "Prefix", MB_OK | MB_ICONINFORMATION);
 				INT shift = atoi(sz_buffer);
-				//dw_mask >>= (32 - shift); //Функция atoi() преобразует ASCII-строку в значение типа 'int'
+				//dw_mask >>= (32 - shift); //Р¤СѓРЅРєС†РёСЏ atoi() РїСЂРµРѕР±СЂР°Р·СѓРµС‚ ASCII-СЃС‚СЂРѕРєСѓ РІ Р·РЅР°С‡РµРЅРёРµ С‚РёРїР° 'int'
 				//dw_mask <<= (32 - shift);
 				//SendMessage(hIpMask, IPM_SETADDRESS, 0, (LPARAM)dw_mask);
 				SendMessage(hIpMask, IPM_SETADDRESS, 0, dw_mask >> (32 - shift) << (32 - shift));
@@ -170,11 +170,11 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			for (; dw_mask_addresses & 1 ^ 1; i--)
 				dw_mask_addresses >>= 1;
 
-			sprintf_s(nwads_info, SIZE, "Info:\nАдрес сети:\t\t\t%i.%i.%i.%i", IP_first & MASK_first, IP_second & MASK_second, IP_third & MASK_third, IP_fourth & MASK_fourth);
-			sprintf_s(bc_info, SIZE, "\nШироковещательный адрес:\t%i.%i.%i.%i", (IP_first& MASK_first) | (255 - MASK_first), (IP_second& MASK_second) | (255 - MASK_second), (IP_third& MASK_third) | (255 - MASK_third), (IP_fourth& MASK_fourth) | (255 - MASK_fourth));
-			sprintf_s(adr_count, SIZE, "\nКоличество IP-адресов:\t%i", (int)pow(2, 32-i) - 2);
-			sprintf_s(first_host, SIZE, "\nIP-адрес первого хоста:\t%i.%i.%i.%i", IP_first& MASK_first, IP_second& MASK_second, IP_third& MASK_third, (IP_fourth& MASK_fourth) | 1);
-			sprintf_s(last_host, SIZE, "\nIP-адрес последнего хоста:\t%i.%i.%i.%i", (IP_first& MASK_first) | (255 - MASK_first), (IP_second& MASK_second) | (255 - MASK_second), (IP_third& MASK_third) | (255 - MASK_third), ((IP_fourth& MASK_fourth) | (255 - MASK_fourth)) ^ 1);
+			sprintf_s(nwads_info, SIZE, "Info:\nРђРґСЂРµСЃ СЃРµС‚Рё:\t\t\t%i.%i.%i.%i", IP_first & MASK_first, IP_second & MASK_second, IP_third & MASK_third, IP_fourth & MASK_fourth);
+			sprintf_s(bc_info, SIZE, "\nРЁРёСЂРѕРєРѕРІРµС‰Р°С‚РµР»СЊРЅС‹Р№ Р°РґСЂРµСЃ:\t%i.%i.%i.%i", (IP_first& MASK_first) | (255 - MASK_first), (IP_second& MASK_second) | (255 - MASK_second), (IP_third& MASK_third) | (255 - MASK_third), (IP_fourth& MASK_fourth) | (255 - MASK_fourth));
+			sprintf_s(adr_count, SIZE, "\nРљРѕР»РёС‡РµСЃС‚РІРѕ IP-Р°РґСЂРµСЃРѕРІ:\t%i", (int)pow(2, 32-i) - 2);
+			sprintf_s(first_host, SIZE, "\nIP-Р°РґСЂРµСЃ РїРµСЂРІРѕРіРѕ С…РѕСЃС‚Р°:\t%i.%i.%i.%i", IP_first& MASK_first, IP_second& MASK_second, IP_third& MASK_third, (IP_fourth& MASK_fourth) | 1);
+			sprintf_s(last_host, SIZE, "\nIP-Р°РґСЂРµСЃ РїРѕСЃР»РµРґРЅРµРіРѕ С…РѕСЃС‚Р°:\t%i.%i.%i.%i", (IP_first& MASK_first) | (255 - MASK_first), (IP_second& MASK_second) | (255 - MASK_second), (IP_third& MASK_third) | (255 - MASK_third), ((IP_fourth& MASK_fourth) | (255 - MASK_fourth)) ^ 1);
 
 			strcpy(result, nwads_info);
 			strcat(result, bc_info);
